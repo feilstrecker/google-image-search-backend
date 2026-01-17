@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/suggestion', async (req, res) => {
+  const headerAuth = req.headers['authorization']?.split(' ')[1];
+  if (headerAuth !== process.env.NODE_AUTH)
+    return res.status(401).json({ error: 'Unauthorized' });
+
   const parentType = process.env.PARENT_TYPE as 'MAIN' | 'CHILDREN';
   const query = req.query.q as string;
 
