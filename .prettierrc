@@ -1,0 +1,9 @@
+{
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+  "parser": "typescript",
+  "printWidth": 80,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
