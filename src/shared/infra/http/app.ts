@@ -25,7 +25,11 @@ app.use(errorHandler);
 const blockedChildren = new Map<string, number>();
 const BLOCK_DURATION = 24 * 60 * 60 * 1000; // 24 horas
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
+  return res.json({ status: 'OK' });
+});
+
+app.get('/suggestion', async (req, res) => {
   const parentType = process.env.PARENT_TYPE as 'MAIN' | 'CHILDREN';
   const query = req.query.q as string;
 
